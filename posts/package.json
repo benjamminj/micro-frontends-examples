@@ -1,0 +1,12 @@
+{
+  "name": "posts",
+  "version": "1.0.0",
+  "description": "Micro-frontend for the `posts` service",
+  "main": "index.js",
+  "author": "Benjamin Johnson <benjamin.d.johnson@icloud.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
