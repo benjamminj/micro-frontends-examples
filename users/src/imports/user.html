@@ -1,0 +1,41 @@
+<script>
+    class User extends HTMLElement {
+      constructor() {
+        super();
+  
+        const shadow = this.attachShadow({ mode: 'open' })
+        const wrapper = this.render();
+        const styles = this.styles();
+  
+        shadow.appendChild(wrapper);
+        shadow.appendChild(styles);
+      }
+  
+      render() {
+        const wrapper = document.createElement('div')
+  
+        wrapper.innerHTML = `
+          <div class="team-a container">
+            here is a user from team b!
+          </div>
+        `
+  
+        return wrapper;
+      }
+  
+      styles() {
+        const style = document.createElement('style');
+  
+        style.textContent = `
+          .container {
+            border: 1px solid blue;
+            padding: 1rem;
+          }
+        `;
+  
+        return style;
+      }
+    }
+  
+    customElements.define('b-user', User)
+  </script>
