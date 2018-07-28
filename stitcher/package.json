@@ -1,0 +1,17 @@
+{
+  "name": "stitcher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
