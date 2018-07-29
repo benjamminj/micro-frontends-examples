@@ -7,6 +7,7 @@ const app = express();
 
 app.use('/a', proxy(process.env.POSTS_URL))
 app.use('/b', proxy(process.env.B_URL))
+app.use('/c', proxy(process.env.C_URL))
 app.get('/', (req,res) => res.sendFile(path.join(__dirname, './index.html')))
 
 const port = process.env.PORT || 5000

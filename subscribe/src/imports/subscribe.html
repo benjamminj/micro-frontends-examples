@@ -1,5 +1,5 @@
 <script>
-    class User extends HTMLElement {
+    class Subscribe extends HTMLElement {
       constructor() {
         super();
   
@@ -15,8 +15,8 @@
         const wrapper = document.createElement('div')
   
         wrapper.innerHTML = `
-          <div class="team-a container">
-            here is a user from team b!
+          <div class="team-c container">
+            here is a subscribe widget from team c!
           </div>
         `
   
@@ -28,8 +28,8 @@
   
         style.textContent = `
           .container {
-            background: #1565c0;
-            color: #fff;
+            background: #4caf50;
+            color: #000;
             padding: 1rem;
           }
         `;
@@ -38,5 +38,5 @@
       }
     }
   
-    customElements.define('b-user', User)
+    customElements.define('c-subscribe', Subscribe)
   </script>
