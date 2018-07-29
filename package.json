@@ -1,0 +1,15 @@
+{
+  "name": "micro-frontends",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/benjamminj/micro-frontends-examples.git",
+  "author": "Benjamin Johnson <benjamin.d.johnson@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "run-a": "cd micro-frontends/a && npm run dev",
+    "run-b": "cd micro-frontends/b && npm run dev",
+    "run-c": "cd micro-frontends/c && npm run dev",
+    "run-app": "cd app && npm run dev",
+    "dev": "concurrently --kill-others \"npm:run-*\""
+  }
+}
