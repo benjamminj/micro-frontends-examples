@@ -19,7 +19,13 @@
 
     renderBtn(msg = '😎') {
       const btn = document.createElement('button')
-      btn.onclick = () => console.log(msg)
+      btn.className = 'btn'
+
+      btn.onclick = () => {
+        const event = new Event('a__click')
+        window.dispatchEvent(event)
+      }
+
       btn.innerHTML = `click me! 🎉`
       return btn
     }
@@ -44,6 +50,14 @@
           padding: 1rem;
           display: flex;
           justify-content: space-between;
+          align-items: center;
+        }
+
+        .btn {
+          padding: 0.25rem;
+          background: #fff;
+          border: 1px solid #888;
+          border-radius: 4px;
         }
       `;
 
