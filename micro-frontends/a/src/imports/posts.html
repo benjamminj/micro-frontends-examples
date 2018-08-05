@@ -11,15 +11,26 @@
       shadow.appendChild(styles);
     }
 
+    renderMsg() {
+      const msg = document.createElement('span')
+      msg.innerHTML = `hello from micro-frontend A!`
+      return msg;
+    }
+
+    renderBtn(msg = '😎') {
+      const btn = document.createElement('button')
+      btn.onclick = () => console.log(msg)
+      btn.innerHTML = `click me! 🎉`
+      return btn
+    }
+
     render() {
       const wrapper = document.createElement('div')
 
-      wrapper.innerHTML = `
-        <div class="team-a container">
-          here is a post from team a!
-        </div>
-      `
-
+      wrapper.className = 'container'
+      wrapper.append(this.renderMsg())
+      wrapper.append(this.renderBtn())
+      
       return wrapper;
     }
 
@@ -31,6 +42,8 @@
           background: #e91e63;
           color: white;
           padding: 1rem;
+          display: flex;
+          justify-content: space-between;
         }
       `;
 

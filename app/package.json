@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "node index.js",
+    "start": "node index.js"
   },
   "dependencies": {
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "express-http-proxy": "^1.2.0"
+    "express-http-proxy": "^1.2.0",
+    "now": "^11.3.8"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"

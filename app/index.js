@@ -12,6 +12,7 @@ app.use('/c', proxy(process.env.C_URL))
 app.get('/', (req,res) => res.sendFile(path.join(__dirname, './index.html')))
 
 const port = process.env.PORT || 5000
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
   // TODO -- better way to say the message
