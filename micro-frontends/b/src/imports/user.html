@@ -1,42 +1,80 @@
 <script>
-    class User extends HTMLElement {
-      constructor() {
-        super();
-  
-        const shadow = this.attachShadow({ mode: 'open' })
-        const wrapper = this.render();
-        const styles = this.styles();
-  
-        shadow.appendChild(wrapper);
-        shadow.appendChild(styles);
-      }
-  
-      render() {
-        const wrapper = document.createElement('div')
-  
-        wrapper.innerHTML = `
-          <div class="team-a container">
-            here is a user from team b!
-          </div>
-        `
-  
-        return wrapper;
-      }
-  
-      styles() {
-        const style = document.createElement('style');
-  
-        style.textContent = `
+  class User extends HTMLElement {
+    constructor() {
+      super();
+
+      this.state = {
+        count: 0
+      };
+
+      this.addCountListener();
+
+      const shadow = this.attachShadow({ mode: 'open' })
+      const wrapper = this.render();
+      const styles = this.styles();
+
+      shadow.appendChild(wrapper);
+      shadow.appendChild(styles);
+
+      this.shadow = shadow;
+    }
+
+    renderMsg() {
+      const span = document.createElement('span');
+      span.innerHTML = `here is a micro-frontend from team b!`
+      return span;
+    }
+
+    renderCount() {
+      const state = this.state;
+      const count = document.createElement('span');
+
+      count.className = 'count';
+      count.id = 'b__count';
+      
+      count.innerHTML = state.count;
+      return count;
+    }
+
+    onUpdateCount() {
+      this.state.count++;
+      const countEl = this.shadowRoot.getElementById('b__count');
+      countEl.innerHTML = this.state.count;
+    }
+
+    addCountListener() {
+      // This micro-frontend has a dependency on micro-frontend "a", when the button in team "a"
+      // is clicked the counter will update
+      window.addEventListener('a__click', () => this.onUpdateCount());
+    }
+
+    render() {
+      const wrapper = document.createElement('div')
+      wrapper.className = 'container';
+      wrapper.id = 'b__wrapper'
+
+      wrapper.appendChild(this.renderMsg())
+      wrapper.appendChild(this.renderCount())
+
+      return wrapper;
+    }
+
+    styles() {
+      const style = document.createElement('style');
+
+      style.textContent = `
           .container {
             background: #1565c0;
             color: #fff;
             padding: 1rem;
+            display: flex;
+            justify-content: space-between;
           }
         `;
-  
-        return style;
-      }
+
+      return style;
     }
-  
-    customElements.define('b-user', User)
-  </script>
+  }
+
+  customElements.define('b-user', User)
+</script>
