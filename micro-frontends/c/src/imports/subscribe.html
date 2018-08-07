@@ -24,8 +24,8 @@
       form.onsubmit = (ev) => {
         ev.preventDefault();
         const value = this.shadowRoot.getElementById('c__form').amount.value
-        
-        const event = new Event('c__submit')
+
+        const event = new CustomEvent('c__submit', { detail: parseInt(value) })
         window.dispatchEvent(event)
       }
 
@@ -36,7 +36,7 @@
           <button type="submit">submit!</button>  
         </form>
       `
-      
+
       return form
     }
 

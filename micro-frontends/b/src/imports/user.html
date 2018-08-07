@@ -31,13 +31,13 @@
 
       count.className = 'count';
       count.id = 'b__count';
-      
+
       count.innerHTML = state.count;
       return count;
     }
 
-    onUpdateCount() {
-      this.state.count++;
+    onUpdateCount(amt = 1) {
+      this.state.count += amt;
       const countEl = this.shadowRoot.getElementById('b__count');
       countEl.innerHTML = this.state.count;
     }
@@ -46,6 +46,7 @@
       // This micro-frontend has a dependency on micro-frontend "a", when the button in team "a"
       // is clicked the counter will update
       window.addEventListener('a__click', () => this.onUpdateCount());
+      window.addEventListener('c__submit', ({ detail }) => this.onUpdateCount(+detail));
     }
 
     render() {
