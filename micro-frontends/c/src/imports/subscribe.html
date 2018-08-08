@@ -25,8 +25,13 @@
         ev.preventDefault();
         const value = this.shadowRoot.getElementById('c__form').amount.value
 
-        const event = new CustomEvent('c__submit', { detail: parseInt(value) })
-        window.dispatchEvent(event)
+        if (value >= 1) {
+          const event = new CustomEvent('c__submit', { detail: parseInt(value) })
+          window.dispatchEvent(event)
+        }
+
+        const input = this.shadowRoot.getElementById('c__amount');
+        input.value = 0;
       }
 
       form.innerHTML = `
@@ -64,7 +69,6 @@
 
           button {
             padding: 0.5rem 1rem;
-            font-size: 1rem; 
             background: #fff;
             border: 1px solid #888;
             border-radius: 4px;
