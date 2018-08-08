@@ -31,13 +31,15 @@
 
       form.innerHTML = `
         <form>
-          <label for="c__amount">Increase the counter</label>
-          <input id="c__amount" type="number" name="amount" value="1" />
+          <fieldset>
+            <label for="c__amount">Increase the counter</label>
+            <input id="c__amount" type="number" name="amount" value="1" />
+          </fieldset>
           <button type="submit">submit!</button>  
         </form>
-      `
+      `;
 
-      return form
+      return form;
     }
 
     render() {
@@ -58,6 +60,31 @@
             background: #4caf50;
             color: #000;
             padding: 1rem;
+          }
+
+          button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem; 
+            background: #fff;
+            border: 1px solid #888;
+            border-radius: 4px;
+          }
+
+          form {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+          }
+
+          fieldset {
+            border: none;
+            padding: 0.5rem 0;
+          }
+
+          input[type="number"] {
+            padding: 0.25rem;
+            margin-left: 0.5rem;
+            width: 60px;
+            text-align: left;
           }
         `;
 

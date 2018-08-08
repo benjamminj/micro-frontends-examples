@@ -46,6 +46,9 @@
       // This micro-frontend has a dependency on micro-frontend "a", when the button in team "a"
       // is clicked the counter will update
       window.addEventListener('a__click', () => this.onUpdateCount());
+      // In addition, when the form in micro-frontend "c" is updated, the counter will update.
+      // Make sure that the data from micro-frontend "c" is cast into a number, since the front-ends are \
+      // isolated from each other we can't assume that the data is sanitized
       window.addEventListener('c__submit', ({ detail }) => this.onUpdateCount(+detail));
     }
 

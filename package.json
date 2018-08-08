@@ -11,5 +11,10 @@
     "run-c": "cd micro-frontends/c && npm run dev",
     "run-app": "cd app && npm run dev",
     "dev": "concurrently --kill-others \"npm:run-*\""
-  }
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "prettier": "^1.14.0"
+  },
+  "dependencies": {}
 }
